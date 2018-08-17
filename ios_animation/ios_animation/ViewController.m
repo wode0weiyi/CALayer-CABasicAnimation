@@ -11,6 +11,7 @@
 #import "StrokeView.h"
 #import "CGContextViewController.h"
 #import "LayerViewController.h"
+#import "TransformViewController.h"
 
 static const CGFloat radius = 100;
 static const CGFloat lineWidth = 20;
@@ -29,7 +30,7 @@ static const CGFloat lineWidth = 20;
 - (NSMutableArray *)dataAry
 {
     if(!_dataAry){
-        _dataAry = [NSMutableArray arrayWithObjects:@"CGContext绘图",@"Layer绘图动画", nil];
+        _dataAry = [NSMutableArray arrayWithObjects:@"CGContext绘图",@"Layer绘图动画",@"Transform", nil];
     }
     return _dataAry;
 }
@@ -71,8 +72,9 @@ static const CGFloat lineWidth = 20;
     }else if ([title isEqualToString:@"Layer绘图动画"]){
         LayerViewController * viewController = [[LayerViewController alloc] init];
         [self.navigationController pushViewController:viewController animated:true];
-    }else{
-        
+    }else if([title isEqualToString:@"Transform"]){
+        TransformViewController * viewController = [[TransformViewController alloc] init];
+        [self.navigationController pushViewController:viewController animated:true];
     }
 }
 

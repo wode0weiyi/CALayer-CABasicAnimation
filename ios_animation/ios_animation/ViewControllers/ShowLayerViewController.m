@@ -10,6 +10,7 @@
 #import "UIView_CALayer.h"
 #import "ShaperLayer.h"
 #import "GradientLayer.h"
+#import "ReplicatorLayer.h"
 
 @interface ShowLayerViewController ()<CALayerDelegate>
 /*注释*/
@@ -18,6 +19,8 @@
 @property (nonatomic,strong) ShaperLayer *shaperLayer;
 /*注释*/
 @property (nonatomic,strong) GradientLayer *gradientLayer;
+/*注释*/
+@property (nonatomic,strong) ReplicatorLayer *replicatorLater;
 @end
 
 @implementation ShowLayerViewController
@@ -36,7 +39,7 @@
     return _layer;
 }
 
-/*注释*/
+/*shaperLayer*/
 - (ShaperLayer *)shaperLayer
 {
     if(!_shaperLayer){
@@ -46,7 +49,7 @@
     return _shaperLayer;
 }
 
-/*注释*/
+/*gradientLayer*/
 - (GradientLayer *)gradientLayer
 {
     if(!_gradientLayer){
@@ -54,6 +57,16 @@
         [self.view addSubview:_gradientLayer];
     }
     return _gradientLayer;
+}
+
+/*replicatorLater*/
+- (ReplicatorLayer *)replicatorLater
+{
+    if(!_replicatorLater){
+        _replicatorLater = [[ReplicatorLayer alloc] initWithFrame:CGRectMake(0, 64, kWidth, kHeight-64)];
+        [self.view addSubview:_replicatorLater];
+    }
+    return _replicatorLater;
 }
 
 - (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx{
@@ -79,6 +92,9 @@
     }else if (self.layerType == CALayerGradientLayer){
         self.title = @"gradientLayer";
         [self gradientLayer];
+    }else if (self.layerType == CALayerReplicatorLayer){
+        self.title = @"replicatorLayer";
+        [self replicatorLater];
     }
 }
 

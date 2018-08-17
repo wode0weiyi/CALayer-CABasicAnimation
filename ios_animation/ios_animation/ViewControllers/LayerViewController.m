@@ -22,7 +22,7 @@
 - (NSMutableArray *)layers
 {
     if(!_layers){
-        _layers = [NSMutableArray arrayWithObjects:@"CALayer",@"CASheperLayer",@"gradientLayer", nil];
+        _layers = [NSMutableArray arrayWithObjects:@"CALayer",@"CASheperLayer",@"gradientLayer",@"replicatorLayer", nil];
     }
     return _layers;
 }
@@ -64,6 +64,8 @@
         viewController.layerType = CALayerShapeLayer;
     }else if([str isEqualToString:@"gradientLayer"]){
         viewController.layerType = CALayerGradientLayer;
+    }else if ([str isEqualToString:@"replicatorLayer"]){
+        viewController.layerType = CALayerReplicatorLayer;
     }
     [self.navigationController pushViewController:viewController animated:true];
 }

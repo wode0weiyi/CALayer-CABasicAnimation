@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A91769F92123F80600187FFD /* ReplicatorLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A91769F82123F80600187FFD /* ReplicatorLayer.m */; };
+		A91769FC2123F81300187FFD /* ScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A91769FB2123F81300187FFD /* ScrollLayer.m */; };
+		A99561652122A935000EDF74 /* TransformViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99561632122A935000EDF74 /* TransformViewController.m */; };
+		A99561662122A935000EDF74 /* TransformViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A99561642122A935000EDF74 /* TransformViewController.xib */; };
+		A99561692122B442000EDF74 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99561682122B441000EDF74 /* GLKit.framework */; };
 		A9C99CA22111561E008ED4F8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C99CA12111561E008ED4F8 /* AppDelegate.m */; };
 		A9C99CA52111561E008ED4F8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C99CA42111561E008ED4F8 /* ViewController.m */; };
 		A9C99CA82111561E008ED4F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9C99CA62111561E008ED4F8 /* Main.storyboard */; };
@@ -27,6 +32,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A91769F72123F80600187FFD /* ReplicatorLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReplicatorLayer.h; sourceTree = "<group>"; };
+		A91769F82123F80600187FFD /* ReplicatorLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReplicatorLayer.m; sourceTree = "<group>"; };
+		A91769FA2123F81300187FFD /* ScrollLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollLayer.h; sourceTree = "<group>"; };
+		A91769FB2123F81300187FFD /* ScrollLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollLayer.m; sourceTree = "<group>"; };
+		A99561622122A935000EDF74 /* TransformViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransformViewController.h; sourceTree = "<group>"; };
+		A99561632122A935000EDF74 /* TransformViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransformViewController.m; sourceTree = "<group>"; };
+		A99561642122A935000EDF74 /* TransformViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransformViewController.xib; sourceTree = "<group>"; };
+		A99561682122B441000EDF74 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		A9C99C9D2111561E008ED4F8 /* ios_animation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_animation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9C99CA02111561E008ED4F8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A9C99CA12111561E008ED4F8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -66,17 +79,55 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A99561692122B442000EDF74 /* GLKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A91769F52123F7F400187FFD /* CAReplicatorLayer */ = {
+			isa = PBXGroup;
+			children = (
+				A91769F72123F80600187FFD /* ReplicatorLayer.h */,
+				A91769F82123F80600187FFD /* ReplicatorLayer.m */,
+			);
+			path = CAReplicatorLayer;
+			sourceTree = "<group>";
+		};
+		A91769F62123F7F400187FFD /* CAScrollLayer */ = {
+			isa = PBXGroup;
+			children = (
+				A91769FA2123F81300187FFD /* ScrollLayer.h */,
+				A91769FB2123F81300187FFD /* ScrollLayer.m */,
+			);
+			path = CAScrollLayer;
+			sourceTree = "<group>";
+		};
+		A99561612122A90C000EDF74 /* Transfrom */ = {
+			isa = PBXGroup;
+			children = (
+				A99561622122A935000EDF74 /* TransformViewController.h */,
+				A99561632122A935000EDF74 /* TransformViewController.m */,
+				A99561642122A935000EDF74 /* TransformViewController.xib */,
+			);
+			path = Transfrom;
+			sourceTree = "<group>";
+		};
+		A99561672122B441000EDF74 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A99561682122B441000EDF74 /* GLKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A9C99C942111561E008ED4F8 = {
 			isa = PBXGroup;
 			children = (
 				A9C99C9F2111561E008ED4F8 /* ios_animation */,
 				A9C99C9E2111561E008ED4F8 /* Products */,
+				A99561672122B441000EDF74 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,6 +142,7 @@
 		A9C99C9F2111561E008ED4F8 /* ios_animation */ = {
 			isa = PBXGroup;
 			children = (
+				A99561612122A90C000EDF74 /* Transfrom */,
 				A9CCFAA9211A8814005D7F38 /* ViewControllers */,
 				A9CCFAA1211A83AB005D7F38 /* Layer */,
 				A9CCFA91211A7B81005D7F38 /* Animation */,
@@ -143,6 +195,8 @@
 		A9CCFAA1211A83AB005D7F38 /* Layer */ = {
 			isa = PBXGroup;
 			children = (
+				A91769F52123F7F400187FFD /* CAReplicatorLayer */,
+				A91769F62123F7F400187FFD /* CAScrollLayer */,
 				A9CCFABD211AD046005D7F38 /* CAGradientLayer */,
 				A9CCFAB9211A9705005D7F38 /* CAShaperLayer */,
 				A9CCFAA5211A83CB005D7F38 /* CALayer */,
@@ -248,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9C99CAD21115620008ED4F8 /* LaunchScreen.storyboard in Resources */,
+				A99561662122A935000EDF74 /* TransformViewController.xib in Resources */,
 				A9C99CB7211156FB008ED4F8 /* banner@3x.png in Resources */,
 				A9C99CAA21115620008ED4F8 /* Assets.xcassets in Resources */,
 				A9C99CA82111561E008ED4F8 /* Main.storyboard in Resources */,
@@ -262,8 +317,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9CCFAAF211A8C7C005D7F38 /* AnimationViewController.m in Sources */,
+				A99561652122A935000EDF74 /* TransformViewController.m in Sources */,
 				A9CCFAB0211A8C7C005D7F38 /* AnimationCell.m in Sources */,
 				A9CCFAB1211A8C7C005D7F38 /* StrokeView.m in Sources */,
+				A91769FC2123F81300187FFD /* ScrollLayer.m in Sources */,
+				A91769F92123F80600187FFD /* ReplicatorLayer.m in Sources */,
 				A9CCFAB2211A8C7C005D7F38 /* TouchTableView.m in Sources */,
 				A9CCFAC0211AD05A005D7F38 /* GradientLayer.m in Sources */,
 				A9CCFAB8211A91E9005D7F38 /* ShowLayerViewController.m in Sources */,

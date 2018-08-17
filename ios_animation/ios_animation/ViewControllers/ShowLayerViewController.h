@@ -10,7 +10,8 @@
 typedef enum : NSUInteger {
     CALayerLayer,
     CALayerShapeLayer,
-    CALayerGradientLayer
+    CALayerGradientLayer,
+    CALayerReplicatorLayer
 } LayerType;
 
 @interface ShowLayerViewController : UIViewController
