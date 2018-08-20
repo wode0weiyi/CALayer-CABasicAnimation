@@ -20,8 +20,8 @@
 //        [self cicleReplicatorLayer];
 //        [self radarAnimation];
 //        [self circleAnimation];
-        [self cicleScaleAnimation];
-//        [self marquee];
+//        [self cicleScaleAnimation];
+        [self marquee];
 //        [self marquee2];
 //        [self marquee3];
     }
@@ -199,6 +199,7 @@
     
     [shaperLayer addAnimation:animation forKey:nil];
     
+    CGPathRelease(path.CGPath);
     
     //创建replicatorLayer
     CAReplicatorLayer *replicatorLayer = [CAReplicatorLayer layer];
@@ -212,51 +213,6 @@
 
 }
 
-
-/**
- * 跑马灯二（shaperLayer）
- */
--(void)marquee2{
-    //创建一个shaperLayer
-    CAShapeLayer *shaperLayer = [CAShapeLayer layer];
-    shaperLayer.bounds = CGRectMake(0, 0, 10, 5);
-    shaperLayer.position = CGPointMake((kWidth-300)/2, (kHeight-200)/2);
-    shaperLayer.strokeColor = [UIColor whiteColor].CGColor;
-    shaperLayer.fillColor = [UIColor clearColor].CGColor;
-    shaperLayer.lineDashPattern = @[@(10),@(10)];
-//    虚线结尾处的类型
-    shaperLayer.lineCap = kCALineCapRound;
-//    拐角处layer的类型
-    shaperLayer.lineJoin = kCALineJoinRound;
-    shaperLayer.lineWidth = 5;
-    
-    //创建动画路径
-    UIBezierPath * path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, 300, 200)];
-    shaperLayer.path = path.CGPath;
-//    CGPathRelease(path.CGPath);
-    
-    CAKeyframeAnimation *animation2 = [CAKeyframeAnimation animationWithKeyPath:@"strokeEnd"];
-    animation2.duration = 8;
-    animation2.repeatCount = MAXFLOAT;
-    animation2.values = @[@(0),@(1),@(0)];
-    animation2.removedOnCompletion = NO;
-    animation2.fillMode = kCAFillModeForwards;
-    
-    /**
-     * 上述的animation2的动画和效果和下面的animation动画效果是一样的
-     */
-    CABasicAnimation * animation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-    animation.duration = 4;
-    animation.repeatCount = MAXFLOAT;
-    animation.fromValue = @(0);
-    animation.toValue = @(1);
-//    这个设置是在一个动画完成时，是否需要反向动画，默认是NO
-    animation.autoreverses = YES;
-    
-    [shaperLayer addAnimation:animation forKey:nil];
-    
-    [self.layer addSublayer:shaperLayer];
-}
 
 /**
  * 跑马灯三

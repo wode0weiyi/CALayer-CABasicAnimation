@@ -8,6 +8,7 @@
 
 #import "LayerViewController.h"
 #import "ShowLayerViewController.h"
+#import "ReflectionViewController.h"
 
 @interface LayerViewController ()<UITableViewDelegate,UITableViewDataSource>
 /*注释*/
@@ -22,7 +23,7 @@
 - (NSMutableArray *)layers
 {
     if(!_layers){
-        _layers = [NSMutableArray arrayWithObjects:@"CALayer",@"CASheperLayer",@"gradientLayer",@"replicatorLayer", nil];
+        _layers = [NSMutableArray arrayWithObjects:@"CALayer",@"CASheperLayer",@"gradientLayer",@"replicatorLayer",@"reflection(反射)", nil];
     }
     return _layers;
 }
@@ -57,17 +58,22 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString * str = self.layers[indexPath.row];
-    ShowLayerViewController * viewController = [[ShowLayerViewController alloc] init];
-    if ([str isEqualToString:@"CALayer"]) {
-        viewController.layerType = CALayerLayer;
-    }else if ([str isEqualToString:@"CASheperLayer"]){
-        viewController.layerType = CALayerShapeLayer;
-    }else if([str isEqualToString:@"gradientLayer"]){
-        viewController.layerType = CALayerGradientLayer;
-    }else if ([str isEqualToString:@"replicatorLayer"]){
-        viewController.layerType = CALayerReplicatorLayer;
+    if (![str isEqualToString:@"reflection(反射)"]) {
+        ShowLayerViewController * viewController = [[ShowLayerViewController alloc] init];
+        if ([str isEqualToString:@"CALayer"]) {
+            viewController.layerType = CALayerLayer;
+        }else if ([str isEqualToString:@"CASheperLayer"]){
+            viewController.layerType = CALayerShapeLayer;
+        }else if([str isEqualToString:@"gradientLayer"]){
+            viewController.layerType = CALayerGradientLayer;
+        }else if ([str isEqualToString:@"replicatorLayer"]){
+            viewController.layerType = CALayerReplicatorLayer;
+        }
+        [self.navigationController pushViewController:viewController animated:true];
+    }else{
+        ReflectionViewController * viewController = [[ReflectionViewController alloc] init];
+        [self.navigationController pushViewController:viewController animated:true];
     }
-    [self.navigationController pushViewController:viewController animated:true];
 }
 
 @end

@@ -8,6 +8,11 @@
 
 #import "ShaperLayer.h"
 
+
+#define kStartPoint CGPointMake(100, kHeight/2)
+#define kEndPoint CGPointMake(300, kHeight/2)
+
+
 @implementation ShaperLayer
 
 /*线性的CAShapeLayer*/
@@ -243,6 +248,176 @@
     [self.animationDown addAnimation:down forKey:@"animationDown"];
 }
 
+/**
+ * 跑马灯二（shaperLayer）
+ */
+-(void)marquee2{
+    //创建一个shaperLayer
+    CAShapeLayer *shaperLayer = [CAShapeLayer layer];
+    shaperLayer.bounds = CGRectMake(0, 0, 10, 5);
+    shaperLayer.position = CGPointMake((kWidth-300)/2, (kHeight-200)/2);
+    shaperLayer.strokeColor = [UIColor whiteColor].CGColor;
+    shaperLayer.fillColor = [UIColor clearColor].CGColor;
+    shaperLayer.lineDashPattern = @[@(10),@(10)];
+    //    虚线结尾处的类型
+    shaperLayer.lineCap = kCALineCapRound;
+    //    拐角处layer的类型
+    shaperLayer.lineJoin = kCALineJoinRound;
+    shaperLayer.lineWidth = 5;
+    
+    //创建动画路径
+    UIBezierPath * path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, 300, 200)];
+    shaperLayer.path = path.CGPath;
+    //    CGPathRelease(path.CGPath);
+    
+    CAKeyframeAnimation *animation2 = [CAKeyframeAnimation animationWithKeyPath:@"strokeEnd"];
+    animation2.duration = 8;
+    animation2.repeatCount = MAXFLOAT;
+    animation2.values = @[@(0),@(1),@(0)];
+    animation2.removedOnCompletion = NO;
+    animation2.fillMode = kCAFillModeForwards;
+    
+    /**
+     * 上述的animation2的动画和效果和下面的animation动画效果是一样的
+     */
+    CABasicAnimation * animation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+    animation.duration = 4;
+    animation.repeatCount = MAXFLOAT;
+    animation.fromValue = @(0);
+    animation.toValue = @(1);
+    //    这个设置是在一个动画完成时，是否需要反向动画，默认是NO
+    animation.autoreverses = YES;
+    
+    [shaperLayer addAnimation:animation forKey:nil];
+    
+    [self.layer addSublayer:shaperLayer];
+}
+
+
+/**
+ * 从一个圆动画到另外一个圆
+ */
+
+/*第一个按钮*/
+- (UIButton *)startBtn
+{
+    if(!_startBtn){
+        _startBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+        _startBtn.bounds = CGRectMake(0, 0, 30, 30);
+        _startBtn.center = CGPointMake(100, kHeight/2);
+        _startBtn.layer.cornerRadius = 15;
+        _startBtn.layer.masksToBounds = YES;
+        _startBtn.layer.borderColor = [UIColor orangeColor].CGColor;
+        _startBtn.layer.borderWidth = 1;
+        [_startBtn setTitle:@"点我" forState:UIControlStateNormal];
+        [_startBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        _startBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+        [_startBtn addTarget:self action:@selector(clickMe:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:_startBtn];
+    }
+    return _startBtn;
+}
+
+/*第一个按钮*/
+- (UIButton *)endBtn
+{
+    if(!_endBtn){
+        _endBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _endBtn.bounds = CGRectMake(0, 0, 30, 30);
+        _endBtn.center = CGPointMake(300, kHeight/2);
+        _endBtn.layer.cornerRadius = 15;
+        _endBtn.layer.masksToBounds = YES;
+        _endBtn.layer.borderColor = [UIColor orangeColor].CGColor;
+        _endBtn.layer.borderWidth = 1;
+        [_endBtn setTitle:@"点我" forState:UIControlStateNormal];
+        [_endBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        _endBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+        [_endBtn addTarget:self action:@selector(clickMe:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:_endBtn];
+    }
+    return _endBtn;
+}
+
+/*显示层*/
+- (CAShapeLayer *)shapeLayer
+{
+    if(!_shapeLayer){
+        _shapeLayer = [CAShapeLayer layer];
+        _shapeLayer.strokeColor = [UIColor orangeColor].CGColor;
+        _shapeLayer.lineWidth = 1;
+        _shapeLayer.fillColor = [UIColor clearColor].CGColor;
+        _shapeLayer.lineCap = kCALineCapRound;
+        [self.layer addSublayer:_shapeLayer];
+    }
+    return _shapeLayer;
+}
+
+//按钮点击方法
+- (void)clickMe:(UIButton *)sender{
+    if (sender == self.startBtn) {
+        BOOL clockwise = YES;
+        [self cicle:kEndPoint ToCicle:kStartPoint clockwise:clockwise];
+    }else{
+        [self cicle:kStartPoint ToCicle:kEndPoint clockwise:NO];
+    }
+}
+
+-(void)cicle:(CGPoint)fromPoint ToCicle:(CGPoint)toPoint clockwise:(BOOL)clockwise{
+    
+    //创建第一个中心点
+    CGPoint point1 = fromPoint;
+    //创建第二个中心点
+    CGPoint point2 = toPoint;
+    //计算路径长度
+    CGFloat length = 4*M_PI*20 + 200;
+    //计算一个圆的长度,用来计算后续动画的结束点
+    CGFloat cicleLength = 2 * M_PI * 20;
+    
+    //创建路径
+    if (!self.animationPath) {
+        self.animationPath = [UIBezierPath bezierPath];
+    }
+    //删除动画路径上的所有点
+    [self.animationPath removeAllPoints];
+    [self.animationPath addArcWithCenter:point1 radius:20 startAngle:M_PI_2-0.0001 endAngle:2*M_PI + M_PI_2 clockwise:clockwise];
+    [self.animationPath addArcWithCenter:point2 radius:20 startAngle:M_PI_2-0.0001 endAngle:2*M_PI + M_PI_2 clockwise:clockwise];
+    self.shapeLayer.path = self.animationPath.CGPath;
+    
+    //创建strkeEnd动画
+    CABasicAnimation * strokeEndAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+    strokeEndAnimation.duration = 3;
+    strokeEndAnimation.fromValue = @0;
+    strokeEndAnimation.toValue = @1;
+    strokeEndAnimation.removedOnCompletion = clockwise;
+    strokeEndAnimation.fillMode = kCAFillModeForwards;
+//    kCAMediaTimingFunctionEaseOut 是让动画全速开始然后慢慢减速停止
+    strokeEndAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    
+    //创建strokeStart动画
+    CABasicAnimation * strokeStartAnimation = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
+    strokeStartAnimation.duration = strokeEndAnimation.duration - 0.15;
+    strokeStartAnimation.fromValue = @0;
+    strokeStartAnimation.toValue = @(1-(cicleLength/length));
+    strokeStartAnimation.removedOnCompletion = clockwise;
+    strokeStartAnimation.fillMode = kCAFillModeForwards;
+    //kCAMediaTimingFunctionEaseIn是动画缓慢开始，突然停止
+    strokeStartAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    /*通过设置timingFunction来是的动画组开起来更加美观流畅*/
+    
+    
+    //创建动画组
+    CAAnimationGroup * group = [CAAnimationGroup animation];
+    group.duration = strokeEndAnimation.duration;
+    group.removedOnCompletion = NO;
+    group.fillMode = kCAFillModeForwards;
+    group.repeatCount = 1;
+    group.animations = @[strokeEndAnimation,strokeStartAnimation];
+    
+    [self.shapeLayer addAnimation:group forKey:@"stroke"];
+    
+}
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -253,9 +428,13 @@
 //        [self.layer addSublayer:self.curveLayer];
 //        [self.layer addSublayer:self.animationLayer];
 //        [self.layer addSublayer:self.lineAnimationLayer];
-        [self grayImageView];
-        self.greenImageView.layer.mask = [self greenHeadMaskLayer];
-        [self startAnimation];
+//        [self grayImageView];
+//        self.greenImageView.layer.mask = [self greenHeadMaskLayer];
+//        [self startAnimation];
+        
+        [self startBtn];
+        [self endBtn];
+        
     }
     return self;
 }

@@ -65,4 +65,17 @@
 /*注水动画的下半部分的layer*/
 @property (nonatomic,strong) CAShapeLayer *animationDown;
 
+
+/**
+ * 一个圆到另外一个圆的动画属性
+ */
+/*动画路径*/
+@property (nonatomic,strong) UIBezierPath *animationPath;
+/*第一个按钮*/
+@property (nonatomic,strong) UIButton  *startBtn;
+/*第二个按钮*/
+@property (nonatomic,strong) UIButton *endBtn;
+/*展示层*/
+@property (nonatomic,strong) CAShapeLayer *shapeLayer;
+
 @end
