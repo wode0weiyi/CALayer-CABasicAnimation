@@ -11,6 +11,7 @@
 #import "ShaperLayer.h"
 #import "GradientLayer.h"
 #import "ReplicatorLayer.h"
+#import "EmitterLayer.h"
 
 @interface ShowLayerViewController ()<CALayerDelegate>
 /*注释*/
@@ -21,6 +22,8 @@
 @property (nonatomic,strong) GradientLayer *gradientLayer;
 /*注释*/
 @property (nonatomic,strong) ReplicatorLayer *replicatorLater;
+/*注释*/
+@property (nonatomic,strong) EmitterLayer *emitterLayer;
 @end
 
 @implementation ShowLayerViewController
@@ -69,6 +72,16 @@
     return _replicatorLater;
 }
 
+/*CAEmitterLayer*/
+- (EmitterLayer *)emitterLayer
+{
+    if(!_emitterLayer){
+        _emitterLayer = [[EmitterLayer alloc] initWithFrame:CGRectMake(0, 0, kWidth, kHeight)];
+        [self.view addSubview:_emitterLayer];
+    }
+    return _emitterLayer;
+}
+
 - (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx{
     CGContextSaveGState(ctx);
     //    图形上下文形变，解决图片倒立问题
@@ -95,6 +108,10 @@
     }else if (self.layerType == CALayerReplicatorLayer){
         self.title = @"replicatorLayer";
         [self replicatorLater];
+    }else if (self.layerType == CALayerEmitterLayer){
+        self.title = @"CAEmitterLayer";
+        self.view.backgroundColor = [UIColor lightGrayColor];
+        [self emitterLayer];
     }
 }
 

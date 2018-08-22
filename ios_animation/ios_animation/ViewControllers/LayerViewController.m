@@ -9,6 +9,7 @@
 #import "LayerViewController.h"
 #import "ShowLayerViewController.h"
 #import "ReflectionViewController.h"
+#import "ScrollLayerViewController.h"
 
 @interface LayerViewController ()<UITableViewDelegate,UITableViewDataSource>
 /*注释*/
@@ -23,7 +24,7 @@
 - (NSMutableArray *)layers
 {
     if(!_layers){
-        _layers = [NSMutableArray arrayWithObjects:@"CALayer",@"CASheperLayer",@"gradientLayer",@"replicatorLayer",@"reflection(反射)", nil];
+        _layers = [NSMutableArray arrayWithObjects:@"CALayer",@"CASheperLayer",@"gradientLayer",@"replicatorLayer",@"reflection(反射)",@"scrollLayer",@"CAEmitterLayer", nil];
     }
     return _layers;
 }
@@ -58,7 +59,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString * str = self.layers[indexPath.row];
-    if (![str isEqualToString:@"reflection(反射)"]) {
+    if ([str isEqualToString:@"reflection(反射)"]) {
+        ReflectionViewController * viewController = [[ReflectionViewController alloc] init];
+        [self.navigationController pushViewController:viewController animated:true];
+    }else if ([str isEqualToString:@"scrollLayer"]){
+        ScrollLayerViewController * viewController = [[ScrollLayerViewController alloc] init];
+        [self.navigationController pushViewController:viewController animated:true];
+    }else{
         ShowLayerViewController * viewController = [[ShowLayerViewController alloc] init];
         if ([str isEqualToString:@"CALayer"]) {
             viewController.layerType = CALayerLayer;
@@ -68,10 +75,9 @@
             viewController.layerType = CALayerGradientLayer;
         }else if ([str isEqualToString:@"replicatorLayer"]){
             viewController.layerType = CALayerReplicatorLayer;
+        }else if ([str isEqualToString:@"CAEmitterLayer"]){
+            viewController.layerType = CALayerEmitterLayer;
         }
-        [self.navigationController pushViewController:viewController animated:true];
-    }else{
-        ReflectionViewController * viewController = [[ReflectionViewController alloc] init];
         [self.navigationController pushViewController:viewController animated:true];
     }
 }

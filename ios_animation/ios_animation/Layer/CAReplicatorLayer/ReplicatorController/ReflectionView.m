@@ -28,6 +28,7 @@
     transform = CATransform3DTranslate(transform, 0, verticalHeight, 0);
 //    设置Y方向缩放-1，
     transform = CATransform3DScale(transform, 1, -1, 1);
+//    transform = CATransform3DRotate(transform, M_PI, 0, 0, 1);
 //    添加transform
     layer.instanceTransform = transform;
 //    设置重复层的alpha变化

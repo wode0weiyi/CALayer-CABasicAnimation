@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ScrollLayer : UIView
-
+/*注释*/
+@property (nonatomic,strong) CAScrollLayer *scrollLayer;
 @end

@@ -19,12 +19,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"replicator反射效果";
-    ReflectionView * view = [[ReflectionView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-    view.center = CGPointMake(kWidth/2, kHeight/2-200);
-    UIImageView * img = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-    img.image = [UIImage imageNamed:@"reflection_image"];
-    [view addSubview:img];
-    [self.view addSubview:view];
+//    ReflectionView * view = [[ReflectionView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+//    view.center = CGPointMake(kWidth/2, kHeight/2-200);
+//    UIImageView * img = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+//    img.image = [UIImage imageNamed:@"reflection_image"];
+//    [view addSubview:img];
+//    [self.view addSubview:view];
 }
 
 - (void)didReceiveMemoryWarning {

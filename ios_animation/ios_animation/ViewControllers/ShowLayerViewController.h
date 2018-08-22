@@ -13,6 +13,7 @@ typedef enum : NSUInteger {
     CALayerGradientLayer,
     CALayerReplicatorLayer,
     CALayerReflection,//反射
+    CALayerEmitterLayer,//粒子效果
 } LayerType;
 
 @interface ShowLayerViewController : UIViewController

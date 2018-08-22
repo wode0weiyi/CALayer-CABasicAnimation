@@ -32,6 +32,8 @@
 		A9CCFAB8211A91E9005D7F38 /* ShowLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CCFAB7211A91E9005D7F38 /* ShowLayerViewController.m */; };
 		A9CCFABC211A971C005D7F38 /* ShaperLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CCFABB211A971C005D7F38 /* ShaperLayer.m */; };
 		A9CCFAC0211AD05A005D7F38 /* GradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CCFABF211AD05A005D7F38 /* GradientLayer.m */; };
+		A9F7CE04212BB49F00FEC018 /* ScrollLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F7CE03212BB49F00FEC018 /* ScrollLayerViewController.m */; };
+		A9F7CE08212BF38200FEC018 /* EmitterLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F7CE07212BF38200FEC018 /* EmitterLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +82,10 @@
 		A9CCFABB211A971C005D7F38 /* ShaperLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShaperLayer.m; sourceTree = "<group>"; };
 		A9CCFABE211AD05A005D7F38 /* GradientLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GradientLayer.h; sourceTree = "<group>"; };
 		A9CCFABF211AD05A005D7F38 /* GradientLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GradientLayer.m; sourceTree = "<group>"; };
+		A9F7CE02212BB49F00FEC018 /* ScrollLayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollLayerViewController.h; sourceTree = "<group>"; };
+		A9F7CE03212BB49F00FEC018 /* ScrollLayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollLayerViewController.m; sourceTree = "<group>"; };
+		A9F7CE06212BF38200FEC018 /* EmitterLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmitterLayer.h; sourceTree = "<group>"; };
+		A9F7CE07212BF38200FEC018 /* EmitterLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmitterLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,8 @@
 			children = (
 				A91769FA2123F81300187FFD /* ScrollLayer.h */,
 				A91769FB2123F81300187FFD /* ScrollLayer.m */,
+				A9F7CE02212BB49F00FEC018 /* ScrollLayerViewController.h */,
+				A9F7CE03212BB49F00FEC018 /* ScrollLayerViewController.m */,
 			);
 			path = CAScrollLayer;
 			sourceTree = "<group>";
@@ -116,8 +124,8 @@
 		A956AA97212A6AF100400A4A /* ReplicatorController */ = {
 			isa = PBXGroup;
 			children = (
-				A956AA98212A6AF100400A4A /* ReflectionView.m */,
 				A956AA99212A6AF100400A4A /* ReflectionView.h */,
+				A956AA98212A6AF100400A4A /* ReflectionView.m */,
 				A956AA9D212A6B0800400A4A /* ReflectionViewController.h */,
 				A956AA9E212A6B0800400A4A /* ReflectionViewController.m */,
 				A956AA9F212A6B0800400A4A /* ReflectionViewController.xib */,
@@ -216,6 +224,7 @@
 		A9CCFAA1211A83AB005D7F38 /* Layer */ = {
 			isa = PBXGroup;
 			children = (
+				A9F7CE05212BF36000FEC018 /* CAEmitterLayer */,
 				A91769F52123F7F400187FFD /* CAReplicatorLayer */,
 				A91769F62123F7F400187FFD /* CAScrollLayer */,
 				A9CCFABD211AD046005D7F38 /* CAGradientLayer */,
@@ -263,6 +272,15 @@
 				A9CCFABF211AD05A005D7F38 /* GradientLayer.m */,
 			);
 			path = CAGradientLayer;
+			sourceTree = "<group>";
+		};
+		A9F7CE05212BF36000FEC018 /* CAEmitterLayer */ = {
+			isa = PBXGroup;
+			children = (
+				A9F7CE06212BF38200FEC018 /* EmitterLayer.h */,
+				A9F7CE07212BF38200FEC018 /* EmitterLayer.m */,
+			);
+			path = CAEmitterLayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +360,7 @@
 				A99561652122A935000EDF74 /* TransformViewController.m in Sources */,
 				A9CCFAB0211A8C7C005D7F38 /* AnimationCell.m in Sources */,
 				A9CCFAB1211A8C7C005D7F38 /* StrokeView.m in Sources */,
+				A9F7CE08212BF38200FEC018 /* EmitterLayer.m in Sources */,
 				A91769FC2123F81300187FFD /* ScrollLayer.m in Sources */,
 				A9CCFAB2211A8C7C005D7F38 /* TouchTableView.m in Sources */,
 				A9CCFAC0211AD05A005D7F38 /* GradientLayer.m in Sources */,
@@ -351,6 +370,7 @@
 				A9C99CA52111561E008ED4F8 /* ViewController.m in Sources */,
 				A956AAA0212A6B0800400A4A /* ReflectionViewController.m in Sources */,
 				A956AA9C212A6AF100400A4A /* ReflectionView.m in Sources */,
+				A9F7CE04212BB49F00FEC018 /* ScrollLayerViewController.m in Sources */,
 				A9CCFABC211A971C005D7F38 /* ShaperLayer.m in Sources */,
 				A9CCFAAC211A8849005D7F38 /* CGContextViewController.m in Sources */,
 				A9C99CB021115620008ED4F8 /* main.m in Sources */,

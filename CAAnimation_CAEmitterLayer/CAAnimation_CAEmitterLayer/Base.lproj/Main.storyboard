@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zzM-VL-JdH">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--CAEmitterLayer-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CAAnimation_CAEmitterLayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RrD-so-yvQ">
+                                <rect key="frame" x="45.5" y="264" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="B8X-7a-Ghh"/>
+                                    <constraint firstAttribute="width" constant="22" id="Mg9-Pp-nCm"/>
+                                </constraints>
+                                <state key="normal" image="Heart_red"/>
+                                <connections>
+                                    <action selector="leftHeartButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DAQ-o8-7aT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8J-pr-A7C">
+                                <rect key="frame" x="176.5" y="264" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="fs1-pS-Rpv"/>
+                                    <constraint firstAttribute="width" constant="22" id="gnK-Nr-MbT"/>
+                                </constraints>
+                                <state key="normal" image="Heart_red"/>
+                                <connections>
+                                    <action selector="centerHeartButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q4i-kw-ybM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keU-Gf-acd">
+                                <rect key="frame" x="289" y="264" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="7nh-t7-nO4"/>
+                                    <constraint firstAttribute="height" constant="22" id="uPh-MA-sNr"/>
+                                </constraints>
+                                <state key="normal" image="Heart_red"/>
+                                <connections>
+                                    <action selector="rightHeartButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yhw-Qt-ykQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNM-kT-Ibn">
+                                <rect key="frame" x="137" y="134" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Q6j-Vi-Qcj"/>
+                                    <constraint firstAttribute="width" constant="100" id="pRN-Sr-bhB"/>
+                                </constraints>
+                                <state key="normal" title="rain"/>
+                                <connections>
+                                    <action selector="rainButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9kM-lo-yfU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dj2-NB-XgZ">
+                                <rect key="frame" x="137" y="384" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="JOX-2L-AkM"/>
+                                    <constraint firstAttribute="width" constant="100" id="guu-kB-tHD"/>
+                                </constraints>
+                                <state key="normal" title="gravity"/>
+                                <connections>
+                                    <action selector="gravityButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mdx-CQ-Qhg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dj2-NB-XgZ" secondAttribute="bottom" constant="253" id="7ad-ZM-ERX"/>
+                            <constraint firstItem="keU-Gf-acd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="96d-0j-JQf"/>
+                            <constraint firstItem="RrD-so-yvQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="PuW-aN-PuS"/>
+                            <constraint firstItem="M8J-pr-A7C" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="V61-7q-z8v"/>
+                            <constraint firstItem="keU-Gf-acd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" multiplier="1.6" id="VUP-xZ-StU"/>
+                            <constraint firstItem="MNM-kT-Ibn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="VXU-zD-pZk"/>
+                            <constraint firstItem="M8J-pr-A7C" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="fDF-f3-I0a"/>
+                            <constraint firstItem="MNM-kT-Ibn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="70" id="h7m-Lu-6Vp"/>
+                            <constraint firstItem="RrD-so-yvQ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" multiplier="0.3" id="oRq-RI-KRN"/>
+                            <constraint firstItem="Dj2-NB-XgZ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="r13-5L-ulm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="CAEmitterLayer" id="dNq-s9-BIn"/>
+                    <connections>
+                        <outlet property="centerHeartButton" destination="M8J-pr-A7C" id="EQY-RJ-4GU"/>
+                        <outlet property="leftHeartButton" destination="RrD-so-yvQ" id="Kef-Cf-gGq"/>
+                        <outlet property="rightHeartButton" destination="keU-Gf-acd" id="hPn-BP-g5B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1134" y="-254"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="p7f-3F-8bq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zzM-VL-JdH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QQv-v9-dly">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="zBp-ic-4xW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Si7-vh-UiK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="272.80000000000001" y="-564.46776611694156"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Heart_red" width="21" height="21"/>
+    </resources>
+</document>
